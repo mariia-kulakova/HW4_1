@@ -1,9 +1,11 @@
-from helpers.date_time_helper import days_ago_str
+from helpers.date_time_helper import days_ago
 from helpers.elasticsearch_helper import elasticsearch_client, extract_source_list, INDEX_CVE
 from fastapi import APIRouter
 
 MAX_CVES_COUNT = 40
-DAYS_AGO = 5
+
+# 4 days ago + today = last 5 days
+DAYS_AGO = 4
 
 router = APIRouter(tags=['All CVEs'])
 
@@ -18,8 +20,8 @@ def get_all():
         'query': {
             'bool': {
                 'filter': {
-                    'range' : {
-                        'dateAdded' : { 'gte' : days_ago_str(DAYS_AGO) }
+                    'range': {
+                        'dateAdded': { 'gte': str(days_ago(DAYS_AGO)) }
                     }
                 }
             }
