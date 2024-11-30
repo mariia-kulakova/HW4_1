@@ -1,2 +1,11 @@
+# Debugger
 .vscode/
 __pycache__/
+
+# Venv
+.venv/
+bin/
+lib/
+lib64/
+share/
+pyvenv.cfg
