@@ -11,3 +11,8 @@ def elasticsearch_client():
         print('Not provided ElasticSearch URL and Token!')
 
     return Elasticsearch(es_url, api_key=es_token)
+
+def extract_source_list(response):
+    return [
+        cve['_source'] for cve in response.get('hits', {}).get('hits', {})
+    ]
