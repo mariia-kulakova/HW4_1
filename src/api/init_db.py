@@ -3,9 +3,6 @@ from fastapi import APIRouter
 from uuid import uuid4
 from json import loads
 
-import os
-import requests
-
 CVES_FILENAME = 'known_exploited_vulnerabilities.json'
 
 router = APIRouter(tags=['Init DB'])
@@ -15,7 +12,6 @@ def retrieve_cves():
         cves = loads(file.read())
 
         return cves
-
 
 @router.get('/init-db')
 def init_db():
