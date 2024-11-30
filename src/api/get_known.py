@@ -1,4 +1,4 @@
-from helpers.elasticsearch_helper import elasticsearch_client, INDEX_CVE
+from helpers.elasticsearch_helper import elasticsearch_client, extract_source_list, INDEX_CVE
 from fastapi import APIRouter
 
 MAX_CVES_COUNT = 10
@@ -16,6 +16,4 @@ def get_known():
         }
     })
 
-    return [
-        cve['_source'] for cve in response.get('hits', {}).get('hits', {})
-    ]
+    return extract_source_list(response)
