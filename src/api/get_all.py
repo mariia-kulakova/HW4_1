@@ -18,8 +18,8 @@ def get_all():
         'query': {
             'bool': {
                 'filter': {
-                    'range' : {
-                        'dateAdded' : { 'gte' : days_ago_str(DAYS_AGO) }
+                    'range': {
+                        'dateAdded': { 'gte': days_ago_str(DAYS_AGO) }
                     }
                 }
             }

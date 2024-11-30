@@ -17,7 +17,8 @@ def retrieve_cves():
 def init_db():
     cve_data = retrieve_cves()
 
+    # Can take couple minutes to import all CVEs
     for cve in cve_data.get('vulnerabilities', []):
         elasticsearch_client().create(index=INDEX_CVE, id=str(uuid4()), body=cve)
 
-    return 'Success!'
+    return { 'message': 'CVEs imported successfully!' }
