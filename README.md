@@ -12,12 +12,11 @@ Project setup locally to run in Debugger mode:
 
 6) pip install -r requirements.txt
 
-7) open the src file in the vscode editor and add the debugger config file (.vscode/launch.json) here.
+7) open the src folder in the window vscode editor and add the debugger config file (.vscode/launch.json) here.
 Use example-launch.json as pattern where change ES_URL (ElasticSearch endpoint url) and
 ES_TOKEN (ElasticSearch encrypted token)
 
-8) open migrations/create_cve_index.py and run the current file with Debugger
-or without (ES_URL and ES_TOKEN must be set as system ENV vars).
+8) open migrations/create_cve_index.py and run the current file with Debugger.
 This migration creates 'cve' index in ElasticSearch DB
 
 9) run FastAPI (use the f5 button shortcut)
